@@ -1,0 +1,33 @@
+{
+    "properties": {
+        "name": "Hello",
+        "id": "Hello",
+        "project": "noflo-playpen",
+        "environment": {
+            "type": "noflo-nodejs",
+            "content": ""
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "core/Output_q92xt": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "core/Output",
+                "x": 333,
+                "y": 41
+            }
+        }
+    },
+    "connections": [
+        {
+            "data": "hello",
+            "tgt": {
+                "process": "core/Output_q92xt",
+                "port": "in"
+            }
+        }
+    ]
+}
