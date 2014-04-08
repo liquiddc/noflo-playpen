@@ -465,19 +465,6 @@
             }
         },
         {
-            "src": {
-                "process": "woute/ToPorts_fq07l",
-                "port": "query"
-            },
-            "tgt": {
-                "process": "core/Output_ng1np",
-                "port": "in"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
             "data": "content",
             "tgt": {
                 "process": "woute/Match_75wdp",
