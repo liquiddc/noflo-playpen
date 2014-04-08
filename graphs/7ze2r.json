@@ -10,7 +10,15 @@
     },
     "inports": {},
     "outports": {},
-    "groups": [],
+    "groups": [
+        {
+            "name": "ErrorHandling",
+            "nodes": [],
+            "metadata": {
+                "description": "This group just handles errors"
+            }
+        }
+    ],
     "processes": {
         "webserver/Server_ck6cy": {
             "component": "webserver/Server",
@@ -18,14 +26,6 @@
                 "label": "Server",
                 "x": 468,
                 "y": -972
-            }
-        },
-        "woute/Match_75wdp": {
-            "component": "woute/Match",
-            "metadata": {
-                "label": "MatchAllPosts",
-                "x": 936,
-                "y": -540
             }
         },
         "webserver/BodyParser_jwjs2": {
@@ -44,52 +44,12 @@
                 "y": -972
             }
         },
-        "woute/Match_fccbq": {
-            "component": "woute/Match",
-            "metadata": {
-                "label": "MatchEmptyBody",
-                "x": 828,
-                "y": -720
-            }
-        },
-        "woute/Match_q8p4u": {
-            "component": "woute/Match",
-            "metadata": {
-                "label": "MatchMissing",
-                "x": 1044,
-                "y": -396
-            }
-        },
-        "woute/ToPorts_c9wvs": {
-            "component": "woute/ToPorts",
-            "metadata": {
-                "label": "PostsToPorts",
-                "x": 1080,
-                "y": -576
-            }
-        },
-        "core/Output_27547": {
-            "component": "core/Output",
-            "metadata": {
-                "label": "PrintPostsBody",
-                "x": 1296,
-                "y": -648
-            }
-        },
-        "woute/FromPorts_2ag0u": {
-            "component": "woute/FromPorts",
-            "metadata": {
-                "label": "PostsFromPorts",
-                "x": 1476,
-                "y": -576
-            }
-        },
         "core/Merge_bra4v": {
             "component": "core/Merge",
             "metadata": {
                 "label": "Output",
                 "x": 1800,
-                "y": -648
+                "y": -1008
             }
         },
         "webserver/SendResponse_ncr03": {
@@ -97,14 +57,14 @@
             "metadata": {
                 "label": "SendResponse",
                 "x": 2016,
-                "y": -648
+                "y": -972
             }
         },
         "woute/ToPorts_fq07l": {
             "component": "woute/ToPorts",
             "metadata": {
                 "label": "EchoToPorts",
-                "x": 900,
+                "x": 864,
                 "y": -1044
             }
         },
@@ -112,72 +72,32 @@
             "component": "strings/Jsonify",
             "metadata": {
                 "label": "JsonifyBody",
-                "x": 1188,
-                "y": -1116
+                "x": 1260,
+                "y": -1188
             }
         },
         "woute/FromPorts_xyfhx": {
             "component": "woute/FromPorts",
             "metadata": {
                 "label": "EchoFromPorts",
-                "x": 1440,
-                "y": -972
-            }
-        },
-        "woute/ToGroups_evu1w": {
-            "component": "woute/ToGroups",
-            "metadata": {
-                "label": "EchoToGroups",
-                "x": 1008,
-                "y": -720
-            }
-        },
-        "woute/FromGroups_jspvj": {
-            "component": "woute/FromGroups",
-            "metadata": {
-                "label": "EchoFromGroups",
-                "x": 1152,
-                "y": -720
-            }
-        },
-        "strings/SendString_5jj2q": {
-            "component": "strings/SendString",
-            "metadata": {
-                "label": "SendMissingStatus",
-                "x": 1332,
-                "y": -468
-            }
-        },
-        "woute/ToPorts_srjbj": {
-            "component": "woute/ToPorts",
-            "metadata": {
-                "label": "MissingToPorts",
-                "x": 1188,
-                "y": -432
-            }
-        },
-        "woute/FromPorts_33k1y": {
-            "component": "woute/FromPorts",
-            "metadata": {
-                "label": "MissingFromPorts",
-                "x": 1404,
-                "y": -324
-            }
-        },
-        "core/Output_uzxgz": {
-            "component": "core/Output",
-            "metadata": {
-                "label": "ThisIsNeverReached",
-                "x": 1152,
-                "y": -288
+                "x": 1476,
+                "y": -1044
             }
         },
         "core/Output_aconn": {
             "component": "core/Output",
             "metadata": {
                 "label": "core/Output",
-                "x": 1044,
-                "y": -1116
+                "x": 1080,
+                "y": -1260
+            }
+        },
+        "ErrorHandling": {
+            "component": "JunkDraw/ErrorHandling",
+            "metadata": {
+                "label": "ErrorHandling",
+                "x": 1116,
+                "y": -540
             }
         }
     },
@@ -208,81 +128,11 @@
         },
         {
             "src": {
-                "process": "woute/Match_fccbq",
-                "port": "fail"
-            },
-            "tgt": {
-                "process": "woute/Match_75wdp",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "woute/Match_75wdp",
-                "port": "fail"
-            },
-            "tgt": {
-                "process": "woute/Match_q8p4u",
-                "port": "in"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "woute/Match_75wdp",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "woute/ToPorts_c9wvs",
-                "port": "in"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "woute/ToPorts_c9wvs",
-                "port": "body"
-            },
-            "tgt": {
-                "process": "core/Output_27547",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "woute/ToPorts_c9wvs",
-                "port": "request"
-            },
-            "tgt": {
-                "process": "woute/FromPorts_2ag0u",
-                "port": "request"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
                 "process": "core/Merge_bra4v",
                 "port": "out"
             },
             "tgt": {
                 "process": "webserver/SendResponse_ncr03",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "woute/FromPorts_2ag0u",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "core/Merge_bra4v",
                 "port": "in"
             },
             "metadata": {}
@@ -324,122 +174,6 @@
         },
         {
             "src": {
-                "process": "woute/Match_fccbq",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "woute/ToGroups_evu1w",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "woute/ToGroups_evu1w",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "woute/FromGroups_jspvj",
-                "port": "in"
-            },
-            "metadata": {
-                "route": 1
-            }
-        },
-        {
-            "src": {
-                "process": "woute/FromGroups_jspvj",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "core/Merge_bra4v",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "woute/ToPorts_srjbj",
-                "port": "url"
-            },
-            "tgt": {
-                "process": "strings/SendString_5jj2q",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "woute/Match_q8p4u",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "woute/ToPorts_srjbj",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "strings/SendString_5jj2q",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "woute/FromPorts_33k1y",
-                "port": "status"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "woute/ToPorts_srjbj",
-                "port": "request"
-            },
-            "tgt": {
-                "process": "woute/FromPorts_33k1y",
-                "port": "request"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "woute/FromPorts_33k1y",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "core/Merge_bra4v",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "woute/Match_ynjfx",
-                "port": "fail"
-            },
-            "tgt": {
-                "process": "woute/Match_fccbq",
-                "port": "in"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "woute/Match_q8p4u",
-                "port": "fail"
-            },
-            "tgt": {
-                "process": "core/Output_uzxgz",
-                "port": "in"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
                 "process": "woute/ToPorts_fq07l",
                 "port": "request"
             },
@@ -476,10 +210,42 @@
             "metadata": {}
         },
         {
-            "data": "content",
+            "src": {
+                "process": "ErrorHandling",
+                "port": "fromports_out"
+            },
             "tgt": {
-                "process": "woute/Match_75wdp",
-                "port": "match"
+                "process": "core/Merge_bra4v",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "ErrorHandling",
+                "port": "fromgroups_out"
+            },
+            "tgt": {
+                "process": "core/Merge_bra4v",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "woute/Match_ynjfx",
+                "port": "fail"
+            },
+            "tgt": {
+                "process": "ErrorHandling",
+                "port": "match_in"
+            },
+            "metadata": {
+                "route": 1
             }
         },
         {
@@ -490,31 +256,10 @@
             }
         },
         {
-            "data": "/empty-body",
-            "tgt": {
-                "process": "woute/Match_fccbq",
-                "port": "match"
-            }
-        },
-        {
-            "data": "404",
-            "tgt": {
-                "process": "strings/SendString_5jj2q",
-                "port": "string"
-            }
-        },
-        {
             "data": "1338",
             "tgt": {
                 "process": "webserver/Server_ck6cy",
                 "port": "listen"
-            }
-        },
-        {
-            "data": "post",
-            "tgt": {
-                "process": "woute/Match_75wdp",
-                "port": "method"
             }
         }
     ]
