@@ -171,6 +171,14 @@
                 "x": 1152,
                 "y": -288
             }
+        },
+        "core/Output_aconn": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "core/Output",
+                "x": 1044,
+                "y": -1116
+            }
         }
     },
     "connections": [
@@ -449,12 +457,23 @@
                 "port": "query"
             },
             "tgt": {
-                "process": "strings/Jsonify_cstq1",
+                "process": "core/Output_aconn",
                 "port": "in"
             },
             "metadata": {
                 "route": null
             }
+        },
+        {
+            "src": {
+                "process": "core/Output_aconn",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "strings/Jsonify_cstq1",
+                "port": "in"
+            },
+            "metadata": {}
         },
         {
             "data": "content",
