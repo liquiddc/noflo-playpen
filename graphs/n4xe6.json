@@ -1,0 +1,24 @@
+{
+    "properties": {
+        "name": "Proj2",
+        "id": "n4xe6",
+        "project": "proj2",
+        "environment": {
+            "type": "noflo-nodejs"
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "JunkDraw/echo_k8dod": {
+            "component": "JunkDraw/echo",
+            "metadata": {
+                "label": "JunkDraw/echo",
+                "x": 360,
+                "y": 288
+            }
+        }
+    },
+    "connections": []
+}
