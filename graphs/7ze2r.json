@@ -63,15 +63,15 @@
         "ErrorHandling": {
             "component": "JunkDraw/ErrorHandling",
             "metadata": {
-                "label": "Handle non matches",
+                "label": "Error Handling\n\n",
                 "x": 792,
-                "y": -828
+                "y": -792
             }
         },
         "DoStuff": {
             "component": "JunkDraw/DoStuff",
             "metadata": {
-                "label": "Handle the query",
+                "label": "Echo",
                 "x": 828,
                 "y": -1044
             }
@@ -159,18 +159,22 @@
             },
             "tgt": {
                 "process": "DoStuff",
-                "port": "toports_in"
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
             }
         },
         {
             "src": {
                 "process": "DoStuff",
-                "port": "fromports_out"
+                "port": "out"
             },
             "tgt": {
                 "process": "core/Merge_bra4v",
                 "port": "in"
-            }
+            },
+            "metadata": {}
         },
         {
             "data": "/echo",
