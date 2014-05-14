@@ -1,6 +1,6 @@
 {
     "properties": {
-        "name": "junk graphsproject",
+        "name": "Web Server (Echo)",
         "id": "7ze2r",
         "project": "JunkDraw",
         "environment": {
@@ -72,7 +72,7 @@
             "component": "JunkDraw/DoStuff",
             "metadata": {
                 "label": "Echo",
-                "x": 828,
+                "x": 792,
                 "y": -1044
             }
         }
