@@ -1,0 +1,142 @@
+{
+    "properties": {
+        "name": "Echo Query to Body",
+        "id": "DoStuff",
+        "project": "JunkDraw",
+        "environment": {
+            "type": "noflo-nodejs",
+            "content": ""
+        }
+    },
+    "inports": {
+        "in": {
+            "process": "woute/ToPorts_fq07l",
+            "port": "in",
+            "metadata": {
+                "x": 792,
+                "y": -972
+            }
+        }
+    },
+    "outports": {
+        "out": {
+            "process": "woute/FromPorts_xyfhx",
+            "port": "out",
+            "metadata": {
+                "x": 1476,
+                "y": -972
+            }
+        }
+    },
+    "groups": [],
+    "processes": {
+        "woute/ToPorts_fq07l": {
+            "component": "woute/ToPorts",
+            "metadata": {
+                "label": "EchoToPorts",
+                "x": 936,
+                "y": -972
+            }
+        },
+        "strings/Jsonify_cstq1": {
+            "component": "strings/Jsonify",
+            "metadata": {
+                "label": "JsonifyQuery",
+                "x": 1152,
+                "y": -1080
+            }
+        },
+        "woute/FromPorts_xyfhx": {
+            "component": "woute/FromPorts",
+            "metadata": {
+                "label": "EchoFromPorts",
+                "x": 1332,
+                "y": -972
+            }
+        },
+        "core/Split_raogj": {
+            "component": "core/Split",
+            "metadata": {
+                "label": "core/Split",
+                "x": 1008,
+                "y": -1188
+            }
+        },
+        "core/Output_74qd3": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "core/Output",
+                "x": 1188,
+                "y": -1260
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "strings/Jsonify_cstq1",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "woute/FromPorts_xyfhx",
+                "port": "body"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "woute/ToPorts_fq07l",
+                "port": "request"
+            },
+            "tgt": {
+                "process": "woute/FromPorts_xyfhx",
+                "port": "request"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "woute/ToPorts_fq07l",
+                "port": "query"
+            },
+            "tgt": {
+                "process": "core/Split_raogj",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Split_raogj",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "strings/Jsonify_cstq1",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Split_raogj",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Output_74qd3",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "data": "400",
+            "tgt": {
+                "process": "woute/FromPorts_xyfhx",
+                "port": "status"
+            }
+        }
+    ]
+}
