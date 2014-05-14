@@ -115,45 +115,6 @@
         },
         {
             "src": {
-                "process": "ErrorHandling",
-                "port": "fromports_out"
-            },
-            "tgt": {
-                "process": "core/Merge_bra4v",
-                "port": "in"
-            },
-            "metadata": {
-                "route": 1
-            }
-        },
-        {
-            "src": {
-                "process": "ErrorHandling",
-                "port": "fromgroups_out"
-            },
-            "tgt": {
-                "process": "core/Merge_bra4v",
-                "port": "in"
-            },
-            "metadata": {
-                "route": 1
-            }
-        },
-        {
-            "src": {
-                "process": "woute/Match_ynjfx",
-                "port": "fail"
-            },
-            "tgt": {
-                "process": "ErrorHandling",
-                "port": "match_in"
-            },
-            "metadata": {
-                "route": 1
-            }
-        },
-        {
-            "src": {
                 "process": "woute/Match_ynjfx",
                 "port": "out"
             },
@@ -177,6 +138,30 @@
             "metadata": {}
         },
         {
+            "src": {
+                "process": "ErrorHandling",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Merge_bra4v",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "woute/Match_ynjfx",
+                "port": "fail"
+            },
+            "tgt": {
+                "process": "ErrorHandling",
+                "port": "match"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
             "data": "/echo",
             "tgt": {
                 "process": "woute/Match_ynjfx",
@@ -184,7 +169,7 @@
             }
         },
         {
-            "data": "1338",
+            "data": "1339",
             "tgt": {
                 "process": "webserver/Server_ck6cy",
                 "port": "listen"
